@@ -7,7 +7,6 @@ package com.bjsxt.thread.info;
   isAlive():判断状态
 
  * @author Administrator
- *
  */
 public class InfoDemo01 {
 
@@ -17,17 +16,18 @@ public class InfoDemo01 {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		MyThread it =new MyThread();
-		Thread proxy =new Thread(it,"挨踢");
+		Thread proxy =new Thread(it,"挨踢+加入一些文字");
 		proxy.setName("test");
 		System.out.println(proxy.getName());
 		System.out.println(Thread.currentThread().getName()); //main
 		//加入一行
 		proxy.start();
-		System.out.println("启动后的状态:"+proxy.isAlive());
+		System.out.println("启动后状态:"+proxy.isAlive());
 		Thread.sleep(200);
+		//第二次加入一行
 		it.stop();
 		Thread.sleep(100);
-		System.out.println("停止后的状态:"+proxy.isAlive());
+		System.out.println("停止后状态:"+proxy.isAlive());
 	}
 
 }
